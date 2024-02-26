@@ -3,13 +3,13 @@ export function Tile({ content: Content, flip, state }) {
     case "start":
       return (
         <Back
-          className="inline-block h-8 w-8 bg-blue-300 text-center"
+          className="inline-block h-[80px] cursor-pointer flex justify-center items-center rounded-md bg-indigo-300 text-center w-20 bg-blue-300 text-center"
           flip={flip}
         />
       );
     case "flipped":
       return (
-        <Front className="inline-block h-8 w-8 bg-green-500">
+        <Front className="flex justify-center text-white inline-block h-[80px] w-20 bg-green-500 cursor-pointer items-center bg-indigo-500 px-2 rounded-md">
           <Content
             style={{
               display: "inline-block",
@@ -22,7 +22,7 @@ export function Tile({ content: Content, flip, state }) {
       );
     case "matched":
       return (
-        <Matched className="inline-block h-8 w-8 text-gray-300">
+        <Matched className="flex justify-center items-center text-center inline-block h-[80px] w-20 text-gray-300">
           <Content
             style={{
               display: "inline-block",
@@ -40,9 +40,7 @@ export function Tile({ content: Content, flip, state }) {
 
 function Back({ className, flip }) {
   return (
-    <div onClick={flip} className={className}>
-      ?
-    </div>
+    <div onClick={flip} className={className}></div>
   );
 }
 
