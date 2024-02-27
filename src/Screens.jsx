@@ -169,27 +169,22 @@ export function PlayScreen({ end }) {
         </p>
 
         <motion.ul
-        variants={container}
-        initial="hidden"
-        animate="visible"
-        className=""
-        >
-          <div className="px-2 py-2 border-none w-[370px] h-[380px] bg-blue-50 rounded-2xl">
-            <div className="flex flex-wrap mt-5 ml-2 w-full gap-10">
+    
+    variants={container}
+    initial="hidden"
+    animate="visible"
+  >
+      <div className="px-2 py-2 border-none w-[370px] h-[380px] bg-blue-50 rounded-2xl">
+        <div className="flex flex-wrap mt-[5px] ml-[1px] gap-[10px] w-full">
+          {getTiles(16).map((tile, i) => (
+            <motion.li key={i}  className="item" variants={item} >
+            <Tile  flip={() => flip(i)} {...tile}/>
+            </motion.li>
+          ))}
+        </div>
+      </div>
 
-            {getTiles(16).map((tile, i) => (
-          <motion.li
-          key={i}
-          variants={item}
-           className="item"
-          >
-            <Tile  flip={() => flip(i)} {...tile} />
-          </motion.li>
-        ))}
-            </div>
-          </div>
-
-        </motion.ul>
+      </motion.ul>
 
         
       </div>
